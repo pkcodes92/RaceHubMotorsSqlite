@@ -1,11 +1,17 @@
 using Microsoft.EntityFrameworkCore;
+using RaceHubMotorsSqlite.API.DAL.Models;
 
 namespace RaceHubMotorsSqlite.API.DAL.Context;
 
 public partial class MotorsContext(DbContextOptions<MotorsContext> options) : DbContext(options)
 {
+    public virtual DbSet<VehicleType> VehicleTypes { get; set;}
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        
+        modelBuilder.Entity<VehicleType>(entity => 
+        {
+            entity.HasKey(e => e.VehicleTypeId);
+        });
     }
 }
