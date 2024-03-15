@@ -11,4 +11,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RaceHubMotorsSqlite.API.DAL\RaceHubMotorsSqlite.API.DAL.csproj" />
+    <ProjectReference Include="..\RaceHubMotorsSqlite.API.Services\RaceHubMotorsSqlite.API.Services.csproj" />
+    <ProjectReference Include="..\RaceHubMotorsSqlite.API.DTO\RaceHubMotorsSqlite.API.DTO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers/" />
+  </ItemGroup>
+
 </Project>
