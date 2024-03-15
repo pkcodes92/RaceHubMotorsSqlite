@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceHubMotorsSqlite.API", "RaceHubMotorsSqlite.API\RaceHubMotorsSqlite.API.csproj", "{AA272D7B-3F69-4C9C-AAF1-6FEA89D7BD28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA272D7B-3F69-4C9C-AAF1-6FEA89D7BD28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA272D7B-3F69-4C9C-AAF1-6FEA89D7BD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA272D7B-3F69-4C9C-AAF1-6FEA89D7BD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA272D7B-3F69-4C9C-AAF1-6FEA89D7BD28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
