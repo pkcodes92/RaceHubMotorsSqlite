@@ -6,6 +6,6 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
+        
     }
 }
