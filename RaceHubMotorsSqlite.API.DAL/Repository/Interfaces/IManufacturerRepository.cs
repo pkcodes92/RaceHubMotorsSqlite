@@ -1,4 +1,4 @@
-using RaceHubMotorsSqlite.DAL.Repository;
+using RaceHubMotorsSqlite.API.DAL.Models;
 
 namespace RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 
