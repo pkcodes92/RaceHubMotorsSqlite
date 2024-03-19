@@ -9,6 +9,8 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
     public virtual DbSet<Manufacturer> Manufacturers { get; set; }
 
+    public virtual DbSet<Engine> Engines { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<VehicleType>(entity => 
@@ -18,6 +20,10 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
         modelBuilder.Entity<Manufacturer>(entity => {
             entity.HasKey(e => e.ManufacturerId);
+        });
+
+        modelBuilder.Entity<Engine>(entity => {
+            entity.HasKey(e => e.EngineId);
         });
     }
 }
