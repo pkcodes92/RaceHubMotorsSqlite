@@ -1,4 +1,6 @@
-﻿namespace RaceHubMotorsSqlite.API.DAL;
+﻿using RaceHubMotorsSqlite.API.DAL.Models;
+
+namespace RaceHubMotorsSqlite.API.DAL;
 
 public interface IDrivetrainRepository
 {

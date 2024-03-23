@@ -1,10 +1,10 @@
-﻿#nullable disable
+#nullable disable
 
 namespace RaceHubMotorsSqlite.API.DAL.Models;
 
-public class Drivetrain
+public class VehicleColor
 {
-    public int DrivetrainId { get; set; }
+    public int VehicleColorId { get; set; }
 
     public string Code { get; set; }
 
