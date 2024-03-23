@@ -1,20 +1,27 @@
-﻿
+﻿using Microsoft.EntityFrameworkCore;
+using RaceHubMotorsSqlite.API.DAL.Context;
+
 namespace RaceHubMotorsSqlite.API.DAL;
 
-public class DrivetrainRepository : IDrivetrainRepository
+public class DrivetrainRepository(MotorsContext motorsContext) : IDrivetrainRepository
 {
-    public Task<List<Drivetrain>> GetAllDrivetrainsAsync()
+    private readonly MotorsContext motorsContext = motorsContext;
+
+    public async Task<List<Drivetrain>> GetAllDrivetrainsAsync()
     {
-        throw new NotImplementedException();
+        var results = await this.motorsContext.Drivetrains.ToListAsync();
+        return results!;
     }
 
-    public Task<Drivetrain> GetDrivetrainByCodeAsync(string code)
+    public async Task<Drivetrain> GetDrivetrainByCodeAsync(string code)
     {
-        throw new NotImplementedException();
+        var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.Code == code);
+        return result!;
     }
 
-    public Task<Drivetrain> GetDrivetrainByIdAsync(int id)
+    public async Task<Drivetrain> GetDrivetrainByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.DrivetrainId == id);
+        return result!;
     }
 }
