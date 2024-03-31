@@ -15,10 +15,11 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
     public virtual DbSet<Vehicle> Vehicles { get; set; }
 
+    public virtual DbSet<VehicleColor> VehicleColors { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<VehicleType>(entity => 
-        {
+        modelBuilder.Entity<VehicleType>(entity => {
             entity.HasKey(e => e.VehicleTypeId);
         });
 
@@ -32,6 +33,14 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
         modelBuilder.Entity<Drivetrain>(entity => {
             entity.HasKey(e => e.DrivetrainId);
+        });
+
+        modelBuilder.Entity<Vehicle>(entity => {
+            entity.HasKey(e => e.VehicleId);
+        });
+
+        modelBuilder.Entity<VehicleColor>(entity => {
+            entity.HasKey(e => e.VehicleColorId);
         });
     }
 }
