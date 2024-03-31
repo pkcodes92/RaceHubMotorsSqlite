@@ -1,6 +1,6 @@
 #nullable disable
 
-namespace RaceHubMotorsSqlite.DAL.Models;
+namespace RaceHubMotorsSqlite.API.DAL.Models;
 
 public class Vehicle
 {

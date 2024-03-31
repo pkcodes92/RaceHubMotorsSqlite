@@ -13,6 +13,8 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
     public virtual DbSet<Drivetrain> Drivetrains { get; set; }
 
+    public virtual DbSet<Vehicle> Vehicles { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<VehicleType>(entity => 
