@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RaceHubMotorsSqlite.API.DAL.Context;
 using RaceHubMotorsSqlite.API.DAL.Models;
+using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 
 namespace RaceHubMotorsSqlite.API.DAL;
 
