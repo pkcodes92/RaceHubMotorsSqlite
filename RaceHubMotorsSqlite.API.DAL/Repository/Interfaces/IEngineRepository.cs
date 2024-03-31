@@ -1,6 +1,6 @@
 ﻿using RaceHubMotorsSqlite.API.DAL.Models;
 
-namespace RaceHubMotorsSqlite.API.DAL;
+namespace RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 
 public interface IEngineRepository
 {
