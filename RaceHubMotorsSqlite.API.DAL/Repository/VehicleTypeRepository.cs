@@ -11,19 +11,26 @@ public class VehicleTypeRepository(MotorsContext motorsContext) : IVehicleTypeRe
 
     public async Task<List<VehicleType>> GetAllVehicleTypesAsync()
     {
-        var results = await motorsContext.VehicleTypes.ToListAsync();
+        var results = await this.motorsContext.VehicleTypes.ToListAsync();
         return results!;
     }
 
     public async Task<VehicleType> GetVehicleTypeByCodeAsync(string code)
     {
-        var result = await motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.Code == code);
+        var result = await this.motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.Code == code);
         return result!;
     }
 
     public async Task<VehicleType> GetVehicleTypeByIdAsync(int id)
     {
-        var result = await motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.VehicleTypeId == id);
+        var result = await this.motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.VehicleTypeId == id);
         return result!;
+    }
+
+    public async Task<VehicleType> AddVehicleTypeAsync(VehicleType vehicleType)
+    {
+        this.motorsContext.VehicleTypes.Add(vehicleType);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0 ? vehicleType : null!;
     }
 }
