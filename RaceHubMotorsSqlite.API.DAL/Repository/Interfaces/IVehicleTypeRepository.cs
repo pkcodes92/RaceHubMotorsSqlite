@@ -9,4 +9,6 @@ public interface IVehicleTypeRepository
     Task<VehicleType> GetVehicleTypeByIdAsync(int id);
 
     Task<VehicleType> GetVehicleTypeByCodeAsync(string code);
+
+    Task<VehicleType> AddVehicleTypeAsync(VehicleType vehicleType);
 }
