@@ -26,4 +26,11 @@ public class VehicleColorRepository(MotorsContext motorsContext) : IVehicleColor
         var result = await this.motorsContext.VehicleColors.FirstOrDefaultAsync(g => g.VehicleColorId == vehicleColorId);
         return result!;
     }
+
+    public async Task<VehicleColor> AddVehicleColorAsync(VehicleColor vehicleColor)
+    {
+        this.motorsContext.VehicleColors.Add(vehicleColor);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0 ? vehicleColor : null!;
+    }
 }
