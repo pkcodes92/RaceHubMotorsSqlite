@@ -8,19 +8,26 @@ public class DrivetrainRepository(MotorsContext motorsContext) : IDrivetrainRepo
 {
     private readonly MotorsContext motorsContext = motorsContext;
 
+    public async Task<Drivetrain> AddDrivetrainAsync(Drivetrain drivetrain)
+    {
+        this.motorsContext.Drivetrains.Add(drivetrain);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0 ? drivetrain! : null!;
+    }
+
     public async Task<List<Drivetrain>> GetAllDrivetrainsAsync()
     {
         var results = await this.motorsContext.Drivetrains.ToListAsync();
         return results!;
     }
 
-    public async Task<Drivetrain> GetDrivetrainByCodeAsync(string code)
+    public async Task<Drivetrain> GetDrivetrainAsync(string code)
     {
         var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.Code == code);
         return result!;
     }
 
-    public async Task<Drivetrain> GetDrivetrainByIdAsync(int id)
+    public async Task<Drivetrain> GetDrivetrainAsync(int id)
     {
         var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.DrivetrainId == id);
         return result!;

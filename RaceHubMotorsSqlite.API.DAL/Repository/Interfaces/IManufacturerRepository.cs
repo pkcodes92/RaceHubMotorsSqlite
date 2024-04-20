@@ -6,7 +6,9 @@ public interface IManufacturerRepository
 {
     Task<List<Manufacturer>> GetAllManufacturersAsync();
 
-    Task<Manufacturer> GetManufacturerByIdAsync(int id);
+    Task<Manufacturer> GetManufacturerAsync(int id);
 
-    Task<Manufacturer> GetManufacturerByNameAsync(string name);
+    Task<Manufacturer> GetManufacturerAsync(string name);
+
+    Task<Manufacturer> AddManufacturerAsync(Manufacturer manufacturer);
 }

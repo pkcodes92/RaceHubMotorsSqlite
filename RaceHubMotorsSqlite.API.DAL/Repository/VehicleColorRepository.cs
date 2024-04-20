@@ -15,13 +15,13 @@ public class VehicleColorRepository(MotorsContext motorsContext) : IVehicleColor
         return results;
     }
 
-    public async Task<VehicleColor> GetVehicleColorByCodeAsync(string code)
+    public async Task<VehicleColor> GetVehicleColorAsync(string code)
     {
         var result = await this.motorsContext.VehicleColors.FirstOrDefaultAsync(g => g.Code == code);
         return result!;
     }
 
-    public async Task<VehicleColor> GetVehicleColorByIdAsync(int vehicleColorId)
+    public async Task<VehicleColor> GetVehicleColorAsync(int vehicleColorId)
     {
         var result = await this.motorsContext.VehicleColors.FirstOrDefaultAsync(g => g.VehicleColorId == vehicleColorId);
         return result!;

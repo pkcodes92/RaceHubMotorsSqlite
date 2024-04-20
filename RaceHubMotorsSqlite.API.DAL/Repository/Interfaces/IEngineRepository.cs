@@ -6,7 +6,9 @@ public interface IEngineRepository
 {
     Task<List<Engine>> GetAllEnginesAsync();
 
-    Task<Engine> GetEngineByCodeAsync(string code);
+    Task<Engine> GetEngineAsync(string code);
 
-    Task<Engine> GetEngineByIdAsync(int id);
+    Task<Engine> GetEngineAsync(int id);
+
+    Task<Engine> AddEngineAsync(Engine engine);
 }

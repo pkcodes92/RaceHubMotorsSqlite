@@ -6,9 +6,9 @@ public interface IVehicleColorRepository
 {
     Task<List<VehicleColor>> GetAllVehicleColorsAsync();
 
-    Task<VehicleColor> GetVehicleColorByIdAsync(int vehicleColorId);
+    Task<VehicleColor> GetVehicleColorAsync(int vehicleColorId);
 
-    Task<VehicleColor> GetVehicleColorByCodeAsync(string code);
+    Task<VehicleColor> GetVehicleColorAsync(string code);
 
     Task<VehicleColor> AddVehicleColorAsync(VehicleColor vehicleColor);
 }
