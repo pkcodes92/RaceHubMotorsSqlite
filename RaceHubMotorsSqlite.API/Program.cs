@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using RaceHubMotorsSqlite.API.DAL.Context;
 using RaceHubMotorsSqlite.API.DAL.Repository;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
+using RaceHubMotorsSqlite.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,13 @@ builder.Services.AddDbContext<MotorsContext>(options => {
     options.UseSqlite(connectionString);
 });
 
+#region Service injections
+builder.Services.AddTransient<IVehicleTypeService, VehicleTypeService>();
+#endregion
+
+#region Repository injections
 builder.Services.AddTransient<IVehicleTypeRepository, VehicleTypeRepository>();
+#endregion
 
 var app = builder.Build();
 
