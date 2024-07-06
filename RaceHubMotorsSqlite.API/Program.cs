@@ -3,6 +3,7 @@ using RaceHubMotorsSqlite.API.DAL.Context;
 using RaceHubMotorsSqlite.API.DAL.Repository;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.Services;
+using RaceHubMotorsSqlite.API.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
