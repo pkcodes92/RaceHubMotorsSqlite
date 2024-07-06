@@ -20,10 +20,12 @@ builder.Services.AddDbContext<MotorsContext>(options => {
 
 #region Service injections
 builder.Services.AddTransient<IVehicleTypeService, VehicleTypeService>();
+builder.Services.AddTransient<IVehicleColorService, VehicleColorService>();
 #endregion
 
 #region Repository injections
 builder.Services.AddTransient<IVehicleTypeRepository, VehicleTypeRepository>();
+builder.Services.AddTransient<IVehicleColorRepository, VehicleColorRepository>();
 #endregion
 
 var app = builder.Build();
