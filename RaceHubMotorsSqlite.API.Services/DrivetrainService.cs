@@ -14,6 +14,10 @@ public class DrivetrainService(IDrivetrainRepository drivetrainRepo)
 {
     private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
 
+    /// <summary>
+    /// This method implementation will get the necessary drivetrains from the database.
+    /// </summary>
+    /// <returns>A unit of execuition that contains a list of <see cref="Drivetrain"/>.</returns>
     public async Task<List<Drivetrain>> GetAllDrivetrainsAsync()
     {
         var dbResults = await this.drivetrainRepo.GetAllDrivetrainsAsync();
@@ -34,6 +38,11 @@ public class DrivetrainService(IDrivetrainRepository drivetrainRepo)
         return results!;
     }
 
+    /// <summary>
+    /// This method implementation will get a single drivetrain from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="Drivetrain"/> entity - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
     public async Task<Drivetrain> GetDrivetrainAsync(int id)
     {
         var dbResult = await this.drivetrainRepo.GetDrivetrainAsync(id);
