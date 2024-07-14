@@ -1,9 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\RaceHubMotorsSqlite.API.DTO\RaceHubMotorsSqlite.API.DTO.csproj" />
+    <ProjectReference Include="..\RaceHubMotorsSqlite.API.DAL\RaceHubMotorsSqlite.API.DAL.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
 </Project>
