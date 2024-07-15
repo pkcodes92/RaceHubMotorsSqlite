@@ -1,5 +1,6 @@
 ﻿using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 using RaceHubMotorsSqlite.API.Services.Interfaces;
 
 namespace RaceHubMotorsSqlite.API.Services;
@@ -13,6 +14,29 @@ public class DrivetrainService(IDrivetrainRepository drivetrainRepo)
     : IDrivetrainService
 {
     private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
+
+    /// <summary>
+    /// This method implementation will add a new drivetrain to the database.
+    /// </summary>
+    /// <param name="request">The new drivetrain information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
+    public async Task<Drivetrain> AddDrivetrainAsync(AddDrivetrainRequest request)
+    {
+        var entityToAdd = new DAL.Models.Drivetrain
+        {
+            Code = request.Code,
+            Description = request.Description
+        };
+
+        var dbResult = await this.drivetrainRepo.AddDrivetrainAsync(entityToAdd);
+
+        return new Drivetrain
+        {
+            Id = dbResult.DrivetrainId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
 
     /// <summary>
     /// This method implementation will get the necessary drivetrains from the database.
@@ -47,6 +71,22 @@ public class DrivetrainService(IDrivetrainRepository drivetrainRepo)
     {
         var dbResult = await this.drivetrainRepo.GetDrivetrainAsync(id);
 
+        return new Drivetrain
+        {
+            Id = dbResult.DrivetrainId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    /// <summary>
+    /// This method implementation will get a single drivetrain from the database.
+    /// </summary>
+    /// <param name="code">The drivetrain code that is required to be searched.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
+    public async Task<Drivetrain> GetDrivetrainAsync(string code)
+    {
+        var dbResult = await this.drivetrainRepo.GetDrivetrainAsync(code);
         return new Drivetrain
         {
             Id = dbResult.DrivetrainId,
