@@ -14,6 +14,30 @@ public class VehicleColorService(IVehicleColorRepository vehicleColorRepo)
 {
     private readonly IVehicleColorRepository vehicleColorRepo = vehicleColorRepo;
 
+    public async Task<VehicleColor> GetVehicleColorAsync(int id)
+    {
+        var dbResult = await this.vehicleColorRepo.GetVehicleColorAsync(id);
+
+        return new VehicleColor
+        {
+            Id = dbResult.VehicleColorId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    public async Task<VehicleColor> GetVehicleColorAsync(string code)
+    {
+        var dbResult = await this.vehicleColorRepo.GetVehicleColorAsync(code);
+
+        return new VehicleColor
+        {
+            Id = dbResult.VehicleColorId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
     /// <summary>
     /// This method implementation will get all the vehicle colors from the database.
     /// </summary>

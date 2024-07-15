@@ -28,7 +28,7 @@ public class VehicleTypeRepository(MotorsContext motorsContext) : IVehicleTypeRe
     /// </summary>
     /// <param name="code">The code to search.</param>
     /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
-    public async Task<VehicleType> GetVehicleTypeByCodeAsync(string code)
+    public async Task<VehicleType> GetVehicleTypeAsync(string code)
     {
         var result = await this.motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.Code == code);
         return result!;
@@ -39,7 +39,7 @@ public class VehicleTypeRepository(MotorsContext motorsContext) : IVehicleTypeRe
     /// </summary>
     /// <param name="id">The primary key - the ID.</param>
     /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
-    public async Task<VehicleType> GetVehicleTypeByIdAsync(int id)
+    public async Task<VehicleType> GetVehicleTypeAsync(int id)
     {
         var result = await this.motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.VehicleTypeId == id);
         return result!;

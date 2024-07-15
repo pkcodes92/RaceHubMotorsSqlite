@@ -18,14 +18,14 @@ public interface IVehicleTypeRepository
     /// </summary>
     /// <param name="id">The primary key of the vehicle type entity.</param>
     /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
-    Task<VehicleType> GetVehicleTypeByIdAsync(int id);
+    Task<VehicleType> GetVehicleTypeAsync(int id);
 
     /// <summary>
     /// This method definition will get a single vehicle type from the database.
     /// </summary>
     /// <param name="code">The code to search.</param>
     /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
-    Task<VehicleType> GetVehicleTypeByCodeAsync(string code);
+    Task<VehicleType> GetVehicleTypeAsync(string code);
 
     /// <summary>
     /// This method definition will add a new vehicle type to the database.

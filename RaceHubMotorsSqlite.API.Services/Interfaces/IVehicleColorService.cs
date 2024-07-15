@@ -12,4 +12,8 @@ public interface IVehicleColorService
     /// </summary>
     /// <returns>A unit of execution that contains a list of type <see cref="VehicleColor"/>.</returns>
     Task<List<VehicleColor>> GetVehicleColorsAsync();
+
+    Task<VehicleColor> GetVehicleColorAsync(int id);
+
+    Task<VehicleColor> GetVehicleColorAsync(string code);
 }

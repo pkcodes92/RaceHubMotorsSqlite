@@ -13,4 +13,8 @@ public interface IVehicleTypeService
     /// </summary>
     /// <returns>A unit of execution that contains a list of type <see cref="VehicleType"/>.</returns>
     Task<List<VehicleType>> GetVehicleTypesAsync();
+
+    Task<VehicleType> GetVehicleTypeAsync(int id);
+
+    Task<VehicleType> GetVehicleTypeAsync(string code);
 }

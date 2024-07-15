@@ -9,9 +9,27 @@ namespace RaceHubMotorsSqlite.API.Services;
 /// </summary>
 /// <remarks>This class implements the methods defined in <see cref="IVehicleTypeService"/>.</remarks>
 /// <param name="vehicleTypeRepo">The necessary vehicle type repository injection.</param>
-public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo) : IVehicleTypeService
+public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo) 
+    : IVehicleTypeService
 {
     private readonly IVehicleTypeRepository vehicleTypeRepo = vehicleTypeRepo;
+
+    public async Task<VehicleType> GetVehicleTypeAsync(int id)
+    {
+        var dbResult = await this.vehicleTypeRepo.GetVehicleTypeAsync(id);
+
+        return new VehicleType
+        {
+            Id = dbResult.VehicleTypeId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    public async Task<VehicleType> GetVehicleTypeAsync(string code)
+    {
+        var dbResult = await this.vehicleTypeRepo.GetVehicleTypeAsync(code);
+    }
 
     /// <summary>
     /// This method implementation will get all the vehicle types from the database.
