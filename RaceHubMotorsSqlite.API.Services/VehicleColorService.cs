@@ -14,6 +14,11 @@ public class VehicleColorService(IVehicleColorRepository vehicleColorRepo)
 {
     private readonly IVehicleColorRepository vehicleColorRepo = vehicleColorRepo;
 
+    /// <summary>
+    /// This method implementation will get a single vehicle color from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="VehicleColor"/> entity - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
     public async Task<VehicleColor> GetVehicleColorAsync(int id)
     {
         var dbResult = await this.vehicleColorRepo.GetVehicleColorAsync(id);
@@ -26,6 +31,11 @@ public class VehicleColorService(IVehicleColorRepository vehicleColorRepo)
         };
     }
 
+    /// <summary>
+    /// This method will get a single vehicle color from the database.
+    /// </summary>
+    /// <param name="code">The code to search.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
     public async Task<VehicleColor> GetVehicleColorAsync(string code)
     {
         var dbResult = await this.vehicleColorRepo.GetVehicleColorAsync(code);

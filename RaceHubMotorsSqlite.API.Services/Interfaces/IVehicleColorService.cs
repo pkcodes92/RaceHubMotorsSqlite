@@ -13,7 +13,17 @@ public interface IVehicleColorService
     /// <returns>A unit of execution that contains a list of type <see cref="VehicleColor"/>.</returns>
     Task<List<VehicleColor>> GetVehicleColorsAsync();
 
+    /// <summary>
+    /// This method definition will get a single vehicle color from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="VehicleColor"/> - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
     Task<VehicleColor> GetVehicleColorAsync(int id);
 
+    /// <summary>
+    /// This method definition will get a single vehicle color from the database.
+    /// </summary>
+    /// <param name="code">The code to search in the database.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
     Task<VehicleColor> GetVehicleColorAsync(string code);
 }

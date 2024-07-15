@@ -14,6 +14,11 @@ public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo)
 {
     private readonly IVehicleTypeRepository vehicleTypeRepo = vehicleTypeRepo;
 
+    /// <summary>
+    /// This method implementation will retrieve a single vehicle type from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="VehicleType"/> - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
     public async Task<VehicleType> GetVehicleTypeAsync(int id)
     {
         var dbResult = await this.vehicleTypeRepo.GetVehicleTypeAsync(id);
@@ -26,9 +31,22 @@ public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo)
         };
     }
 
+    /// <summary>
+    /// This method implementation will retrieve a single vehicle type from the database.
+    /// </summary>
+    /// <param name="code">The necessary vehicle type code to search.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
     public async Task<VehicleType> GetVehicleTypeAsync(string code)
     {
         var dbResult = await this.vehicleTypeRepo.GetVehicleTypeAsync(code);
+
+        return new VehicleType
+        {
+            Id = dbResult.VehicleTypeId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+
     }
 
     /// <summary>
