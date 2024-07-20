@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 
 namespace RaceHubMotorsSqlite.API.DTO.Request
 {
+    /// <summary>
+    /// This class represents the request when adding a new vehicle type.
+    /// </summary>
     public class AddVehicleTypeRequest
     {
         /// <summary>
