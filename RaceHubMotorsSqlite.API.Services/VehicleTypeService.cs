@@ -1,5 +1,6 @@
 ﻿using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 using RaceHubMotorsSqlite.API.Services.Interfaces;
 
 namespace RaceHubMotorsSqlite.API.Services;
@@ -13,6 +14,29 @@ public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo)
     : IVehicleTypeService
 {
     private readonly IVehicleTypeRepository vehicleTypeRepo = vehicleTypeRepo;
+
+    /// <summary>
+    /// This method implementation will add a new vehicle type to the database.
+    /// </summary>
+    /// <param name="request">The new vehicle type information to add.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    public async Task<VehicleType> AddVehicleTypeAsync(AddVehicleTypeRequest request)
+    {
+        var entityToAdd = new DAL.Models.VehicleType
+        {
+            Code = request.Code,
+            Description = request.Description
+        };
+
+        var dbResult = await this.vehicleTypeRepo.AddVehicleTypeAsync(entityToAdd);
+
+        return new VehicleType
+        {
+            Id = dbResult.VehicleTypeId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
 
     /// <summary>
     /// This method implementation will retrieve a single vehicle type from the database.
