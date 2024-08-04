@@ -33,4 +33,11 @@ public interface IDrivetrainRepository
     /// <param name="drivetrain">The new drivetrain information.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
     Task<Drivetrain> AddDrivetrainAsync(Drivetrain drivetrain);
+
+    /// <summary>
+    /// This method definition will update an existing drivetrain in the database.
+    /// </summary>
+    /// <param name="drivetrain">The updated drivetrain information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
+    Task<Drivetrain> UpdateDrivetrainAsync(Drivetrain drivetrain);
 }

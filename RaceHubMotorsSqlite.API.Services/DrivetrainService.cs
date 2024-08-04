@@ -94,4 +94,22 @@ public class DrivetrainService(IDrivetrainRepository drivetrainRepo)
             Description = dbResult.Description
         };
     }
+
+    public async Task<Drivetrain> UpdateDrivetrainAsync(UpdateDrivetrainRequest request)
+    {
+        var drivetrainToUpdate = await this.drivetrainRepo.GetDrivetrainAsync(request.Id);
+
+        drivetrainToUpdate.Code = request.Code;
+        drivetrainToUpdate.Description = request.Description;
+        drivetrainToUpdate.DrivetrainId = request.Id;
+
+        var dbResult = await this.drivetrainRepo.UpdateDrivetrainAsync(drivetrainToUpdate);
+
+        return new Drivetrain
+        {
+            Id = dbResult.DrivetrainId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
 }

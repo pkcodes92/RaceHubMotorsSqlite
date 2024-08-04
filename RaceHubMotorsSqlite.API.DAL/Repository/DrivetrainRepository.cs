@@ -57,4 +57,17 @@ public class DrivetrainRepository(MotorsContext motorsContext) : IDrivetrainRepo
         var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.DrivetrainId == id);
         return result!;
     }
+
+    /// <summary>
+    /// This method implementation will update an existing drivetrain.
+    /// </summary>
+    /// <param name="drivetrain">The updated drivetrain information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
+    public async Task<Drivetrain> UpdateDrivetrainAsync(Drivetrain drivetrain)
+    {
+        this.motorsContext.ChangeTracker.Clear();
+        this.motorsContext.Drivetrains.Update(drivetrain);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0 ? drivetrain! : null!;
+    }
 }
