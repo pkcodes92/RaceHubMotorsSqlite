@@ -1,4 +1,5 @@
 using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 
 namespace RaceHubMotorsSqlite.API.Services.Interfaces;
 
@@ -26,4 +27,11 @@ public interface IVehicleColorService
     /// <param name="code">The code to search in the database.</param>
     /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
     Task<VehicleColor> GetVehicleColorAsync(string code);
+
+    /// <summary>
+    /// This method definition will add a new vehicle color to the database.
+    /// </summary>
+    /// <param name="request">The new vehicle color being added.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
+    Task<VehicleColor> AddVehicleColorAsync(AddVehicleColorRequest request);
 }

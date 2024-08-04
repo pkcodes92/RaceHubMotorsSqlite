@@ -4,7 +4,7 @@
     "editor.fontFamily": "Cascadia Code",
     "editor.lineHeight": 1.5,
     "editor.fontSize": 13,
-    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss19', 'ss20'",
+    "editor.fontLigatures": "'calt', 'ss01'",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorStyle": "line-thin",
     "editor.cursorSurroundingLinesStyle": "all",
