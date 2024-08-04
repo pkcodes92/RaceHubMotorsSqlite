@@ -95,6 +95,11 @@ public class DrivetrainService(IDrivetrainRepository drivetrainRepo)
         };
     }
 
+    /// <summary>
+    /// This method implementation will update an existing drivetrain in the database.
+    /// </summary>
+    /// <param name="request">The updated drivetrain information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
     public async Task<Drivetrain> UpdateDrivetrainAsync(UpdateDrivetrainRequest request)
     {
         var drivetrainToUpdate = await this.drivetrainRepo.GetDrivetrainAsync(request.Id);

@@ -33,4 +33,11 @@ public interface IEngineRepository
     /// <param name="engine">The new engine information.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Engine"/>.</returns>
     Task<Engine> AddEngineAsync(Engine engine);
+
+    /// <summary>
+    /// This method definition will update an existing engine in the database.
+    /// </summary>
+    /// <param name="engine">The updated engine information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Engine"/>.</returns>
+    Task<Engine> UpdateEngineAsync(Engine engine);
 }
