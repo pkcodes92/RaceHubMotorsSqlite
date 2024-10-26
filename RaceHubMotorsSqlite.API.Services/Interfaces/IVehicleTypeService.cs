@@ -1,5 +1,6 @@
 ﻿using RaceHubMotorsSqlite.API.DTO;
 using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 
 namespace RaceHubMotorsSqlite.API.Services.Interfaces;
 
@@ -13,4 +14,25 @@ public interface IVehicleTypeService
     /// </summary>
     /// <returns>A unit of execution that contains a list of type <see cref="VehicleType"/>.</returns>
     Task<List<VehicleType>> GetVehicleTypesAsync();
+
+    /// <summary>
+    /// This method definition will get a single vehicle type from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="VehicleType"/> - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    Task<VehicleType> GetVehicleTypeAsync(int id);
+
+    /// <summary>
+    /// This method definition will get a single vehicle type from the database.
+    /// </summary>
+    /// <param name="code">The vehicle type code to search.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    Task<VehicleType> GetVehicleTypeAsync(string code);
+
+    /// <summary>
+    /// This method definition adds a new vehicle type to the database.
+    /// </summary>
+    /// <param name="request">The new vehicle type information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    Task<VehicleType> AddVehicleTypeAsync(AddVehicleTypeRequest request);
 }

@@ -1,5 +1,6 @@
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 using RaceHubMotorsSqlite.API.Services.Interfaces;
 
 namespace RaceHubMotorsSqlite.API.Services;
@@ -13,6 +14,63 @@ public class VehicleColorService(IVehicleColorRepository vehicleColorRepo)
 : IVehicleColorService
 {
     private readonly IVehicleColorRepository vehicleColorRepo = vehicleColorRepo;
+
+    /// <summary>
+    /// This method implementation will add a new vehicle color to the database.
+    /// </summary>
+    /// <param name="request">The new vehicle color information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
+    public async Task<VehicleColor> AddVehicleColorAsync(AddVehicleColorRequest request)
+    {
+        var entityToAdd = new DAL.Models.VehicleColor
+        {
+            Code = request.Code,
+            Description = request.Description
+        };
+
+        var dbResult = await this.vehicleColorRepo.AddVehicleColorAsync(entityToAdd);
+
+        return new VehicleColor
+        {
+            Id = dbResult.VehicleColorId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    /// <summary>
+    /// This method implementation will get a single vehicle color from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="VehicleColor"/> entity - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
+    public async Task<VehicleColor> GetVehicleColorAsync(int id)
+    {
+        var dbResult = await this.vehicleColorRepo.GetVehicleColorAsync(id);
+
+        return new VehicleColor
+        {
+            Id = dbResult.VehicleColorId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    /// <summary>
+    /// This method will get a single vehicle color from the database.
+    /// </summary>
+    /// <param name="code">The code to search.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
+    public async Task<VehicleColor> GetVehicleColorAsync(string code)
+    {
+        var dbResult = await this.vehicleColorRepo.GetVehicleColorAsync(code);
+
+        return new VehicleColor
+        {
+            Id = dbResult.VehicleColorId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
 
     /// <summary>
     /// This method implementation will get all the vehicle colors from the database.

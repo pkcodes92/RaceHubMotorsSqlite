@@ -1,14 +1,15 @@
-﻿using RaceHubMotorsSqlite.API.DAL.Models;
+﻿using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 
-namespace RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
+namespace RaceHubMotorsSqlite.API.Services.Interfaces;
 
 /// <summary>
-/// This interface defines methods that interact with the Drivetrain database entity.
+/// This interface defines methods that interact with the Drivetrain UI entity.
 /// </summary>
-public interface IDrivetrainRepository
+public interface IDrivetrainService
 {
     /// <summary>
-    /// This method definition will get all of the drivetrains from the database.
+    /// This method definition will get all the drivetrains from the database.
     /// </summary>
     /// <returns>A unit of execution that contains a list of type <see cref="Drivetrain"/>.</returns>
     Task<List<Drivetrain>> GetAllDrivetrainsAsync();
@@ -16,28 +17,28 @@ public interface IDrivetrainRepository
     /// <summary>
     /// This method definition will get a single drivetrain from the database.
     /// </summary>
-    /// <param name="id">The primary key of the drivetrain entity - the ID.</param>
+    /// <param name="id">The primary key of the Drivetrain UI entity - the ID.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
     Task<Drivetrain> GetDrivetrainAsync(int id);
 
     /// <summary>
     /// This method definition will get a single drivetrain from the database.
     /// </summary>
-    /// <param name="code">The code to search.</param>
+    /// <param name="code">The necessary code to search the database.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
     Task<Drivetrain> GetDrivetrainAsync(string code);
 
     /// <summary>
     /// This method definition will add a new drivetrain to the database.
     /// </summary>
-    /// <param name="drivetrain">The new drivetrain information.</param>
+    /// <param name="request">The necessary new drivetrain information.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
-    Task<Drivetrain> AddDrivetrainAsync(Drivetrain drivetrain);
+    Task<Drivetrain> AddDrivetrainAsync(AddDrivetrainRequest request);
 
     /// <summary>
-    /// This method definition will update an existing drivetrain in the database.
+    /// This method implementation will update an exisiting drivetrain in the database.
     /// </summary>
-    /// <param name="drivetrain">The updated drivetrain information.</param>
+    /// <param name="request">The updated drivetrain information.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
-    Task<Drivetrain> UpdateDrivetrainAsync(Drivetrain drivetrain);
+    Task<Drivetrain> UpdateDrivetrainAsync(UpdateDrivetrainRequest request);
 }

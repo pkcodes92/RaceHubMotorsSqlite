@@ -1,11 +1,12 @@
 {
     "dotnet.defaultSolution": "RaceHubMotorsSqlite.sln",
     "workbench.colorTheme": "Sapphire (Bright)",
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.lineHeight": 1.3,
-    "editor.fontSize": 14,
-    "editor.fontLigatures": true,
+    "editor.fontFamily": "Cascadia Code",
+    "editor.lineHeight": 1.5,
+    "editor.fontSize": 13,
+    "editor.fontLigatures": "'calt', 'ss01'",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.cursorStyle": "line-thin",
-    "editor.cursorSurroundingLinesStyle": "all"
+    "editor.cursorSurroundingLinesStyle": "all",
+    "terminal.integrated.fontFamily": "Cascadia Code NF"
 }

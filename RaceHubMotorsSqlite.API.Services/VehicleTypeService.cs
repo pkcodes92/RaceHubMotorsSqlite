@@ -1,5 +1,6 @@
 ﻿using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Models;
+using RaceHubMotorsSqlite.API.DTO.Request;
 using RaceHubMotorsSqlite.API.Services.Interfaces;
 
 namespace RaceHubMotorsSqlite.API.Services;
@@ -9,9 +10,68 @@ namespace RaceHubMotorsSqlite.API.Services;
 /// </summary>
 /// <remarks>This class implements the methods defined in <see cref="IVehicleTypeService"/>.</remarks>
 /// <param name="vehicleTypeRepo">The necessary vehicle type repository injection.</param>
-public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo) : IVehicleTypeService
+public class VehicleTypeService(IVehicleTypeRepository vehicleTypeRepo) 
+    : IVehicleTypeService
 {
     private readonly IVehicleTypeRepository vehicleTypeRepo = vehicleTypeRepo;
+
+    /// <summary>
+    /// This method implementation will add a new vehicle type to the database.
+    /// </summary>
+    /// <param name="request">The new vehicle type information to add.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    public async Task<VehicleType> AddVehicleTypeAsync(AddVehicleTypeRequest request)
+    {
+        var entityToAdd = new DAL.Models.VehicleType
+        {
+            Code = request.Code,
+            Description = request.Description
+        };
+
+        var dbResult = await this.vehicleTypeRepo.AddVehicleTypeAsync(entityToAdd);
+
+        return new VehicleType
+        {
+            Id = dbResult.VehicleTypeId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    /// <summary>
+    /// This method implementation will retrieve a single vehicle type from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the <see cref="VehicleType"/> - the ID.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    public async Task<VehicleType> GetVehicleTypeAsync(int id)
+    {
+        var dbResult = await this.vehicleTypeRepo.GetVehicleTypeAsync(id);
+
+        return new VehicleType
+        {
+            Id = dbResult.VehicleTypeId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+    }
+
+    /// <summary>
+    /// This method implementation will retrieve a single vehicle type from the database.
+    /// </summary>
+    /// <param name="code">The necessary vehicle type code to search.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
+    public async Task<VehicleType> GetVehicleTypeAsync(string code)
+    {
+        var dbResult = await this.vehicleTypeRepo.GetVehicleTypeAsync(code);
+
+        return new VehicleType
+        {
+            Id = dbResult.VehicleTypeId,
+            Code = dbResult.Code,
+            Description = dbResult.Description
+        };
+
+    }
 
     /// <summary>
     /// This method implementation will get all the vehicle types from the database.

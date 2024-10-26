@@ -8,6 +8,7 @@ namespace RaceHubMotorsSqlite.API.DAL.Repository;
 /// <summary>
 /// Initializes an instance of <see cref="EngineRepository"/>.
 /// </summary>
+/// <remarks>This class implements the methods defined in <see cref="IEngineRepository"/>.</remarks>
 /// <param name="motorsContext">The database context injection.</param>
 public class EngineRepository(MotorsContext motorsContext) : IEngineRepository
 {
@@ -55,5 +56,18 @@ public class EngineRepository(MotorsContext motorsContext) : IEngineRepository
     {
         var result = await this.motorsContext.Engines.FirstOrDefaultAsync(g => g.EngineId == id);
         return result!;
+    }
+
+    /// <summary>
+    /// This method implementation will update an existing engine.
+    /// </summary>
+    /// <param name="engine">The updated engine information.</param>
+    /// <returns>A unit of execution that contains a type of <see cref="Engine"/>.</returns>
+    public async Task<Engine> UpdateEngineAsync(Engine engine)
+    {
+        this.motorsContext.ChangeTracker.Clear();
+        this.motorsContext.Engines.Update(engine);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0 ? engine! : null!;
     }
 }
