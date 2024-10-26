@@ -19,8 +19,4 @@
     <ProjectReference Include="..\RaceHubMotorsSqlite.API.DTO\RaceHubMotorsSqlite.API.DTO.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers/" />
-  </ItemGroup>
-
 </Project>
