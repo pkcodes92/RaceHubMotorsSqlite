@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RaceHubMotorsSqlite.API.Services.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Response;
+using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
+using RaceHubMotorsSqlite.API.DAL.Extensions;
 
 namespace RaceHubMotorsSqlite.API.Controllers
 {
@@ -10,10 +10,10 @@ namespace RaceHubMotorsSqlite.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class DrivetrainController(IDrivetrainService drivetrainSvc,
+    public class DrivetrainController(IDrivetrainRepository drivetrainRepo,
         ILogger<DrivetrainController> logger) : ControllerBase
     {
-        private readonly IDrivetrainService drivetrainSvc = drivetrainSvc;
+        private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
         private readonly ILogger<DrivetrainController> logger = logger;
 
         /// <summary>
@@ -27,9 +27,11 @@ namespace RaceHubMotorsSqlite.API.Controllers
 
             try
             {
-                var results = await this.drivetrainSvc.GetAllDrivetrainsAsync();
+                var dbResults = await this.drivetrainRepo.GetAllDrivetrainsAsync();
 
-                return this.Ok(new GetDrivetrainsResponse
+                var results = dbResults.Select(x => x.ToDto()).ToList();
+
+                return this.StatusCode(StatusCodes.Status200OK, new GetDrivetrainsResponse
                 {
                     Drivetrains = results
                 });
