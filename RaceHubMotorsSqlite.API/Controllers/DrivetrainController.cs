@@ -21,6 +21,7 @@ namespace RaceHubMotorsSqlite.API.Controllers
         /// </summary>
         /// <returns>A unit of execution that contains a type of <see cref="ActionResult"/>.</returns>
         [HttpGet("GetAllDrivetrains")]
+        [ProducesResponseType(typeof(GetDrivetrainsResponse), StatusCodes.Status200OK, "application/json")]
         public async Task<ActionResult> GetAllDrivetrainsAsync()
         {
             this.logger.LogInformation("Getting all the drivetrains...");
