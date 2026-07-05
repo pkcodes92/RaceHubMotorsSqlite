@@ -1,9 +1,9 @@
 {
     "dotnet.defaultSolution": "RaceHubMotorsSqlite.sln",
-    "workbench.colorTheme": "Sapphire (Bright)",
+    "workbench.colorTheme": "JetBrains Rider Dark Theme",
     "editor.fontFamily": "Cascadia Code",
-    "editor.lineHeight": 1.5,
-    "editor.fontSize": 13,
+    "editor.lineHeight": 22,
+    "editor.fontSize": 14,
     "editor.fontVariations": true,
     "editor.fontLigatures": "'calt', 'ss01', 'ss02'",
     "editor.cursorSmoothCaretAnimation": "on",
