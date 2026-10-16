@@ -14,15 +14,16 @@ namespace RaceHubMotorsSqlite.API.Controllers
         ILogger<DrivetrainController> logger) : ControllerBase
     {
         private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
+        
         private readonly ILogger<DrivetrainController> logger = logger;
 
         /// <summary>
         /// This method will get all of the drivetrains from the database.
         /// </summary>
-        /// <returns>A unit of execution that contains a type of <see cref="ActionResult"/>.</returns>
+        /// <returns>A unit of execution that contains a type of <see cref="ActionResult{TValue}"/>.</returns>
         [HttpGet("GetAllDrivetrains")]
         [ProducesResponseType(typeof(GetDrivetrainsResponse), StatusCodes.Status200OK, "application/json")]
-        public async Task<ActionResult> GetAllDrivetrainsAsync()
+        public async Task<ActionResult<GetDrivetrainsResponse>> GetAllDrivetrainsAsync()
         {
             this.logger.LogInformation("Getting all the drivetrains...");
 
