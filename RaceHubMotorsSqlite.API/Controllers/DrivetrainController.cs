@@ -8,13 +8,15 @@ namespace RaceHubMotorsSqlite.API.Controllers
     /// <summary>
     /// This class contains methods that interact with the Drivetrain entity. 
     /// </summary>
-    [Route("api/[controller]")]
+    /// <param name="drivetrainRepo">The drivetrain repository.</param>
+    /// <param name="logger">The logging mechanism injection.</param>
     [ApiController]
+    [Route("api/[controller]")]
     public class DrivetrainController(IDrivetrainRepository drivetrainRepo,
         ILogger<DrivetrainController> logger) : ControllerBase
     {
         private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
-        
+
         private readonly ILogger<DrivetrainController> logger = logger;
 
         /// <summary>
