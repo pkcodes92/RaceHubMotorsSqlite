@@ -1,4 +1,6 @@
-﻿#nullable disable
+﻿// <copyright file="DatabaseSettings.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 namespace RaceHubMotorsSqlite.API.Common.Configurations;
 

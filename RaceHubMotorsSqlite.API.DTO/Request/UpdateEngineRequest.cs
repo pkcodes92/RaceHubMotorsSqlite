@@ -1,5 +1,3 @@
-#nullable disable
-
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -22,7 +20,7 @@ public class UpdateEngineRequest
     /// </summary>
     [JsonProperty("code")]
     [SwaggerSchema(Description = "The code of the engine being updated")]
-    public string Code { get; set; }
+    public string Code { get; set; } = string.Empty;
 
     /// <summary>
     /// The description of the engine being updated.

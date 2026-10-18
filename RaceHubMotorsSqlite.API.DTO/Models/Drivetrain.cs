@@ -1,6 +1,4 @@
-﻿#nullable disable
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace RaceHubMotorsSqlite.API.DTO.Models;

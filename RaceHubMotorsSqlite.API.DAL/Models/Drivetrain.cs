@@ -1,4 +1,6 @@
-﻿#nullable disable
+﻿// <copyright file="Drivetrain.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace RaceHubMotorsSqlite.API.DAL.Models;
 
@@ -15,10 +17,10 @@ public class Drivetrain
     /// <summary>
     /// Gets or sets the code.
     /// </summary>
-    public string Code { get; set; }
+    public string Code { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
 }

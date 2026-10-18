@@ -1,19 +1,22 @@
+// <copyright file="DrivetrainController.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
 using Microsoft.AspNetCore.Mvc;
-using RaceHubMotorsSqlite.API.DTO.Response;
-using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DAL.Extensions;
+using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
+using RaceHubMotorsSqlite.API.DTO.Response;
 
 namespace RaceHubMotorsSqlite.API.Controllers
 {
     /// <summary>
-    /// This class contains methods that interact with the Drivetrain entity. 
+    /// This class contains methods that interact with the Drivetrain entity.
     /// </summary>
     /// <param name="drivetrainRepo">The drivetrain repository.</param>
     /// <param name="logger">The logging mechanism injection.</param>
     [ApiController]
     [Route("api/[controller]")]
-    public class DrivetrainController(IDrivetrainRepository drivetrainRepo,
-        ILogger<DrivetrainController> logger) : ControllerBase
+    public class DrivetrainController(IDrivetrainRepository drivetrainRepo, ILogger<DrivetrainController> logger) : ControllerBase
     {
         private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
 
@@ -37,7 +40,7 @@ namespace RaceHubMotorsSqlite.API.Controllers
 
                 return this.StatusCode(StatusCodes.Status200OK, new GetDrivetrainsResponse
                 {
-                    Drivetrains = results
+                    Drivetrains = results,
                 });
             }
             catch (Exception ex)
