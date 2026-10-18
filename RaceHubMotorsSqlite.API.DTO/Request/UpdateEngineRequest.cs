@@ -1,3 +1,7 @@
+// <copyright file="UpdateEngineRequest.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -27,5 +31,5 @@ public class UpdateEngineRequest
     /// </summary>
     [JsonProperty("description")]
     [SwaggerSchema(Description = "The description of the updated engine information")]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
 }

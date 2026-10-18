@@ -10,7 +10,7 @@ namespace RaceHubMotorsSqlite.API.Common.Configurations;
 public class DatabaseSettings
 {
     /// <summary>
-    /// Gets or sets the file location.
+    /// The relevant file location of the database.
     /// </summary>
-    public string FileLocation { get; set; }
+    public string FileLocation { get; set; } = string.Empty;
 }

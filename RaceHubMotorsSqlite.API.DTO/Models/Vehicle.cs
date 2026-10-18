@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="Vehicle.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
@@ -19,23 +21,23 @@ public class Vehicle
     public int Id { get; set; }
 
     /// <summary>
-    /// The name of the manufacturer of the vehicle
+    /// The name of the manufacturer of the vehicle.
     /// </summary>
     [JsonProperty("manufacturer")]
     [SwaggerSchema(Description = "The name of the manufacturer for the vehicle")]
-    public string Manufacturer { get; set; }
+    public string Manufacturer { get; set; } = string.Empty;
 
     /// <summary>
     /// The name of the vehicle.
     /// </summary>
     [JsonProperty("name")]
     [SwaggerSchema(Description = "The actual name of the vehicle")]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// The image of the vehicle - leading to the URL.
     /// </summary>
     [JsonProperty("picture")]
     [SwaggerSchema(Description = "The picture of the vehicle - the image URL")]
-    public string Picture { get; set; }
+    public string Picture { get; set; } = string.Empty;
 }
