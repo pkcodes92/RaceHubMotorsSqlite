@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using RaceHubMotorsSqlite.API.DAL.Context;
 using RaceHubMotorsSqlite.API.DAL.Repository;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
