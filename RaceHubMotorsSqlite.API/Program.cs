@@ -3,8 +3,6 @@ using Microsoft.OpenApi.Models;
 using RaceHubMotorsSqlite.API.DAL.Context;
 using RaceHubMotorsSqlite.API.DAL.Repository;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
-using RaceHubMotorsSqlite.API.Services;
-using RaceHubMotorsSqlite.API.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,12 +29,6 @@ var connectionString = builder.Configuration.GetConnectionString("FileLocation")
 builder.Services.AddDbContext<MotorsContext>(options => {
     options.UseSqlite(connectionString);
 });
-
-#region Service injections
-builder.Services.AddTransient<IDrivetrainService, DrivetrainService>();
-builder.Services.AddTransient<IVehicleTypeService, VehicleTypeService>();
-builder.Services.AddTransient<IVehicleColorService, VehicleColorService>();
-#endregion
 
 #region Repository injections
 builder.Services.AddTransient<IDrivetrainRepository, DrivetrainRepository>();
