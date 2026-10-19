@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="AddEngineResponse.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 using Newtonsoft.Json;
 using RaceHubMotorsSqlite.API.DTO.Models;
@@ -17,5 +19,5 @@ public class AddEngineResponse
     /// </summary>
     [JsonProperty("engine")]
     [SwaggerSchema(Description = "The newly added engine.")]
-    public Engine Engine { get; set; }
+    public Engine Engine { get; set; } = null!;
 }

@@ -1,5 +1,5 @@
-﻿// <copyright file="Drivetrain.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="Drivetrain.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
 // </copyright>
 
 namespace RaceHubMotorsSqlite.API.DAL.Models;

@@ -1,3 +1,7 @@
+// <copyright file="MotorsContext.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
 using Microsoft.EntityFrameworkCore;
 using RaceHubMotorsSqlite.API.DAL.Models;
 
@@ -10,32 +14,32 @@ namespace RaceHubMotorsSqlite.API.DAL.Context;
 public partial class MotorsContext(DbContextOptions<MotorsContext> options) : DbContext(options)
 {
     /// <summary>
-    /// Gets or sets the vehicle types.
+    /// The vehicle types table in the database.
     /// </summary>
-    public virtual DbSet<VehicleType> VehicleTypes { get; set;}
+    public virtual DbSet<VehicleType> VehicleTypes { get; set; }
 
     /// <summary>
-    /// Gets or sets the manufacturers.
+    /// The manufacturers table in the database.
     /// </summary>
     public virtual DbSet<Manufacturer> Manufacturers { get; set; }
 
     /// <summary>
-    /// Gets or sets the engines.
+    /// The engines table in the database.
     /// </summary>
     public virtual DbSet<Engine> Engines { get; set; }
 
     /// <summary>
-    /// Gets or sets the drivetrains.
+    /// The drivetrains table in the database.
     /// </summary>
     public virtual DbSet<Drivetrain> Drivetrains { get; set; }
 
     /// <summary>
-    /// Gets or sets the vehicles.
+    /// The vehicles table in the database.
     /// </summary>
     public virtual DbSet<Vehicle> Vehicles { get; set; }
 
     /// <summary>
-    /// Gets or sets the vehicle colors.
+    /// The vehicle colors table in the database.
     /// </summary>
     public virtual DbSet<VehicleColor> VehicleColors { get; set; }
 
@@ -45,27 +49,33 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
     /// <param name="modelBuilder">The model building middleware.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<VehicleType>(entity => {
+        modelBuilder.Entity<VehicleType>(entity =>
+        {
             entity.HasKey(e => e.VehicleTypeId);
         });
 
-        modelBuilder.Entity<Manufacturer>(entity => {
+        modelBuilder.Entity<Manufacturer>(entity =>
+        {
             entity.HasKey(e => e.ManufacturerId);
         });
 
-        modelBuilder.Entity<Engine>(entity => {
+        modelBuilder.Entity<Engine>(entity =>
+        {
             entity.HasKey(e => e.EngineId);
         });
 
-        modelBuilder.Entity<Drivetrain>(entity => {
+        modelBuilder.Entity<Drivetrain>(entity =>
+        {
             entity.HasKey(e => e.DrivetrainId);
         });
 
-        modelBuilder.Entity<Vehicle>(entity => {
+        modelBuilder.Entity<Vehicle>(entity =>
+        {
             entity.HasKey(e => e.VehicleId);
         });
 
-        modelBuilder.Entity<VehicleColor>(entity => {
+        modelBuilder.Entity<VehicleColor>(entity =>
+        {
             entity.HasKey(e => e.VehicleColorId);
         });
     }

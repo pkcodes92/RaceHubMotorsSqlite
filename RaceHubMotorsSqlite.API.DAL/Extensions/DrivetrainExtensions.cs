@@ -1,3 +1,7 @@
+// <copyright file="DrivetrainExtensions.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
 using RaceHubMotorsSqlite.API.DAL.Models;
 
 namespace RaceHubMotorsSqlite.API.DAL.Extensions;
@@ -6,7 +10,7 @@ namespace RaceHubMotorsSqlite.API.DAL.Extensions;
 /// This class extends the type of <see cref="Drivetrain"/>.
 /// </summary>
 /// <remarks>Initializes an instance of <see cref="DrivetrainExtensions"/>.</remarks>
-public static class DrivetrainExtensions 
+public static class DrivetrainExtensions
 {
     /// <summary>
     /// This method converts a database entity to a DTO entity.
@@ -19,7 +23,7 @@ public static class DrivetrainExtensions
         {
             Id = value.DrivetrainId,
             Code = value.Code,
-            Description = value.Description
+            Description = value.Description,
         };
     }
 }

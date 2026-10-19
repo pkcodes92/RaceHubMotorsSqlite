@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="AddDrivetrainResponse.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 using Newtonsoft.Json;
 using RaceHubMotorsSqlite.API.DTO.Models;
@@ -17,5 +19,5 @@ public class AddDrivetrainResponse
     /// </summary>
     [JsonProperty("drivetrain")]
     [SwaggerSchema(Description = "The newly added drivetrain.")]
-    public Drivetrain Drivetrain { get; set; }
+    public Drivetrain Drivetrain { get; set; } = null!;
 }
