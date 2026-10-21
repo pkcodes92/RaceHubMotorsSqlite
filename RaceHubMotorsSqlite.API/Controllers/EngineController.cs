@@ -3,6 +3,7 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;
+using RaceHubMotorsSqlite.API.DAL.Models;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Response;
 
@@ -37,5 +38,21 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         }
 
         throw new NotFoundException("The engines could not be found!");
+    }
+
+    [HttpGet("GetEngineById/{id}")]
+    public async Task<ActionResult<GetEngineResponse>> GetEngineByIdAsync(int id)
+    {
+        var dbEngine = await this.engineRepo.GetEngineByIdAsync(id);
+
+        if (dbEngine is not null)
+        {
+            return this.Ok(new GetEngineResponse
+            {
+                Engine = dbEngine.ToDto(),
+            });
+        }
+
+        throw new NotFoundException("The engine could not be found!");
     }
 }

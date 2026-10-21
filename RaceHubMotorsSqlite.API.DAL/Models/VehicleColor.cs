@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="VehicleColor.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 namespace RaceHubMotorsSqlite.API.DAL.Models;
 
@@ -15,10 +17,10 @@ public class VehicleColor
     /// <summary>
     /// Gets or sets the code.
     /// </summary>
-    public string Code { get; set; }
+    public string Code { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
 }

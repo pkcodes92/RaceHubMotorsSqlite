@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="Vehicle.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 namespace RaceHubMotorsSqlite.API.DAL.Models;
 
@@ -20,10 +22,10 @@ public class Vehicle
     /// <summary>
     /// Gets or sets the name.
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the picture.
     /// </summary>
-    public string Picture { get; set; }
+    public string Picture { get; set; } = string.Empty;
 }

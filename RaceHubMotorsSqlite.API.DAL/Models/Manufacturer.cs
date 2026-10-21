@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="Manufacturer.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 namespace RaceHubMotorsSqlite.API.DAL.Models;
 
@@ -15,25 +17,25 @@ public class Manufacturer
     /// <summary>
     /// Gets or sets the name.
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the country.
     /// </summary>
-    public string Country { get; set; }
+    public string Country { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the logo.
     /// </summary>
-    public string Logo { get; set; }
+    public string Logo { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the national flag.
     /// </summary>
-    public string NationalFlag { get; set; }
+    public string NationalFlag { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the region.
     /// </summary>
-    public string Region { get; set; }
+    public string Region { get; set; } = string.Empty;
 }
