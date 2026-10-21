@@ -4,6 +4,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
+using RaceHubMotorsSqlite.API.DTO.Response;
 
 namespace RaceHubMotorsSqlite.API.Controllers;
 
@@ -14,9 +15,27 @@ namespace RaceHubMotorsSqlite.API.Controllers;
 /// <param name="engineRepo">The engine repository injection.</param>
 [ApiController]
 [Route("api/[controller]")]
-public class EngineController(ILogger<EngineController> logger, IEngineRepository engineRepo)
+public class EngineController(ILogger<EngineController> logger, IEngineRepository engineRepo) : ControllerBase
 {
     private readonly ILogger<EngineController> logger = logger;
 
     private readonly IEngineRepository engineRepo = engineRepo;
+
+    [HttpGet("GetEngines")]
+    public async Task<ActionResult<GetEnginesResponse>> GetEnginesAsync()
+    {
+        var dbEngines = await this.engineRepo.GetAllEnginesAsync();
+
+        if (dbEngines is not null)
+        {
+            var dtoEngines = dbEngines.Select(x => x.ToDto()).ToList();
+
+            return this.Ok(new GetEnginesResponse
+            {
+                Engines = dtoEngines,
+            });
+        }
+
+        throw new NotFoundException("The engines could not be found!");
+    }
 }
