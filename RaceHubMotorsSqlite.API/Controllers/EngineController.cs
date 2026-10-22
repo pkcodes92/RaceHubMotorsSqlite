@@ -26,6 +26,8 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
     [HttpGet("GetEngines")]
     public async Task<ActionResult<GetEnginesResponse>> GetEnginesAsync()
     {
+        this.logger.LogInformation("Getting all the engines");
+
         var dbEngines = await this.engineRepo.GetAllEnginesAsync();
 
         if (dbEngines is not null)
@@ -44,6 +46,8 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
     [HttpGet("GetEngineById/{id}")]
     public async Task<ActionResult<GetEngineResponse>> GetEngineByIdAsync(int id)
     {
+        this.logger.LogInformation("Getting the engine by the ID");
+
         var dbEngine = await this.engineRepo.GetEngineAsync(id);
 
         if (dbEngine is not null)
@@ -60,6 +64,8 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
     [HttpGet("GetEngineByCode/{code}")]
     public async Task<ActionResult<GetEngineResponse>> GetEngineByCodeAsync(string code)
     {
+        this.logger.LogInformation("Getting the engine by the code");
+
         var dbEngine = await this.engineRepo.GetEngineAsync(code);
 
         if (dbEngine is not null)
@@ -76,6 +82,8 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
     [HttpPost("AddEngine")]
     public async Task<ActionResult<AddEngineResponse>> AddEngineAsync([FromBody] AddEngineRequest request)
     {
+        this.logger.LogInformation("Adding a new engine");
+
         var newEngine = request.ToEntity();
 
         var dbEngine = await this.engineRepo.AddEngineAsync(newEngine);
@@ -96,6 +104,8 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         [FromRoute] int id,
         [FromBody] UpdateEngineRequest request)
     {
+        this.logger.LogInformation("Updating the engine");
+
         var updatedEngine = await this.engineRepo.GetEngineAsync(id);
 
         updatedEngine.Code = request.Code;
@@ -118,6 +128,8 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
     [HttpPost("DeleteEngine/{id}")]
     public async Task<ActionResult<DeleteEngineResponse>> DeleteEngineAsync([FromRoute] int id)
     {
+        this.logger.LogInformation("Deleting the engine");
+
         var engineToDelete = await this.engineRepo.GetEngineAsync(id);
 
         var dbResult = await this.engineRepo.DeleteEngineAsync(engineToDelete!);
