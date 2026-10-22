@@ -44,4 +44,13 @@ public static class EngineExtensions
             Description = engine.Description,
         };
     }
+
+    public static Engine ToEntity(this DTO.Request.AddEngineRequest request)
+    {
+        return new Engine
+        {
+            Code = request.Code,
+            Description = request.Description,
+        };
+    }
 }

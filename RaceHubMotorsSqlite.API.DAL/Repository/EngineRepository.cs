@@ -74,4 +74,12 @@ public class EngineRepository(MotorsContext motorsContext) : IEngineRepository
         var result = await this.motorsContext.SaveChangesAsync();
         return result > 0 ? engine! : null!;
     }
+
+    public async Task<bool> DeleteEngineAsync(Engine engine)
+    {
+        this.motorsContext.ChangeTracker.Clear();
+        this.motorsContext.Engines.Remove(engine);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0;
+    }
 }

@@ -3,7 +3,7 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;
-using RaceHubMotorsSqlite.API.DAL.Extensions;
+using RaceHubMotorsSqlite.API.DAL.Models;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 using RaceHubMotorsSqlite.API.DTO.Response;
 
