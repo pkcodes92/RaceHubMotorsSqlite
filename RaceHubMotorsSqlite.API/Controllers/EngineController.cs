@@ -37,13 +37,13 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
             });
         }
 
-        throw new NotFoundException("The engines could not be found!");
+        return this.NotFound("The engines could not be found!");
     }
 
     [HttpGet("GetEngineById/{id}")]
     public async Task<ActionResult<GetEngineResponse>> GetEngineByIdAsync(int id)
     {
-        var dbEngine = await this.engineRepo.GetEngineByIdAsync(id);
+        var dbEngine = await this.engineRepo.GetEngineAsync(id);
 
         if (dbEngine is not null)
         {
@@ -53,6 +53,6 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
             });
         }
 
-        throw new NotFoundException("The engine could not be found!");
+        return this.NotFound("The engine could not be found!");
     }
 }
