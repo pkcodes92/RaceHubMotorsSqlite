@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// <copyright file="EngineRepository.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
+using Microsoft.EntityFrameworkCore;
 using RaceHubMotorsSqlite.API.DAL.Context;
 using RaceHubMotorsSqlite.API.DAL.Models;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
@@ -69,5 +73,18 @@ public class EngineRepository(MotorsContext motorsContext) : IEngineRepository
         this.motorsContext.Engines.Update(engine);
         var result = await this.motorsContext.SaveChangesAsync();
         return result > 0 ? engine! : null!;
+    }
+
+    /// <summary>
+    /// This method implementation will delete the engine from the database.
+    /// </summary>
+    /// <param name="engine">The relevant engine to delete.</param>
+    /// <returns>A unit of execution that contains a boolean value that indicates the successful deletion.</returns>
+    public async Task<bool> DeleteEngineAsync(Engine engine)
+    {
+        this.motorsContext.ChangeTracker.Clear();
+        this.motorsContext.Engines.Remove(engine);
+        var result = await this.motorsContext.SaveChangesAsync();
+        return result > 0;
     }
 }

@@ -1,4 +1,8 @@
-﻿using RaceHubMotorsSqlite.API.DAL.Models;
+﻿// <copyright file="IEngineRepository.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
+using RaceHubMotorsSqlite.API.DAL.Models;
 
 namespace RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
 
@@ -40,4 +44,13 @@ public interface IEngineRepository
     /// <param name="engine">The updated engine information.</param>
     /// <returns>A unit of execution that contains a type of <see cref="Engine"/>.</returns>
     Task<Engine> UpdateEngineAsync(Engine engine);
+
+    /// <summary>
+    /// This method definition will remove an engine from the database.
+    /// </summary>
+    /// <param name="engine">The relevant engine to delete accordingly.</param>
+    /// <returns>
+    /// A unit of execution that contains a boolean value indicating whether the operation was successful.
+    /// </returns>
+    Task<bool> DeleteEngineAsync(Engine engine);
 }

@@ -1,28 +1,34 @@
+// <copyright file="DrivetrainController.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
 using Microsoft.AspNetCore.Mvc;
-using RaceHubMotorsSqlite.API.DTO.Response;
+using RaceHubMotorsSqlite.API.DAL.Models;
 using RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
-using RaceHubMotorsSqlite.API.DAL.Extensions;
+using RaceHubMotorsSqlite.API.DTO.Response;
 
 namespace RaceHubMotorsSqlite.API.Controllers
 {
     /// <summary>
-    /// This class contains methods that interact with the Drivetrain entity. 
+    /// This class contains methods that interact with the Drivetrain entity.
     /// </summary>
-    [Route("api/[controller]")]
+    /// <param name="drivetrainRepo">The drivetrain repository.</param>
+    /// <param name="logger">The logging mechanism injection.</param>
     [ApiController]
-    public class DrivetrainController(IDrivetrainRepository drivetrainRepo,
-        ILogger<DrivetrainController> logger) : ControllerBase
+    [Route("api/[controller]")]
+    public class DrivetrainController(IDrivetrainRepository drivetrainRepo, ILogger<DrivetrainController> logger) : ControllerBase
     {
         private readonly IDrivetrainRepository drivetrainRepo = drivetrainRepo;
+
         private readonly ILogger<DrivetrainController> logger = logger;
 
         /// <summary>
         /// This method will get all of the drivetrains from the database.
         /// </summary>
-        /// <returns>A unit of execution that contains a type of <see cref="ActionResult"/>.</returns>
+        /// <returns>A unit of execution that contains a type of <see cref="ActionResult{TValue}"/>.</returns>
         [HttpGet("GetAllDrivetrains")]
         [ProducesResponseType(typeof(GetDrivetrainsResponse), StatusCodes.Status200OK, "application/json")]
-        public async Task<ActionResult> GetAllDrivetrainsAsync()
+        public async Task<ActionResult<GetDrivetrainsResponse>> GetAllDrivetrainsAsync()
         {
             this.logger.LogInformation("Getting all the drivetrains...");
 
@@ -34,7 +40,7 @@ namespace RaceHubMotorsSqlite.API.Controllers
 
                 return this.StatusCode(StatusCodes.Status200OK, new GetDrivetrainsResponse
                 {
-                    Drivetrains = results
+                    Drivetrains = results,
                 });
             }
             catch (Exception ex)

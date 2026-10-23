@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="Engine.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
@@ -23,12 +25,12 @@ public class Engine
     /// </summary>
     [JsonProperty("code")]
     [SwaggerSchema(Description = "The code of the engine UI entity")]
-    public string Code { get; set; }
+    public string Code { get; set; } = string.Empty;
 
     /// <summary>
     /// The description of the engine UI entity.
     /// </summary>
     [JsonProperty("description")]
     [SwaggerSchema(Description = "The description of the engine UI entity")]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
 }

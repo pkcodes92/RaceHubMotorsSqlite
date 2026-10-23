@@ -1,4 +1,6 @@
-#nullable disable
+// <copyright file="VehicleColor.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
@@ -23,12 +25,12 @@ public class VehicleColor
     /// </summary>
     [JsonProperty("code")]
     [SwaggerSchema(Description = "The code of the vehicle color")]
-    public string Code { get; set; }
+    public string Code { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
     [JsonProperty("description")]
     [SwaggerSchema(Description = "The description of the vehicle color")]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
 }

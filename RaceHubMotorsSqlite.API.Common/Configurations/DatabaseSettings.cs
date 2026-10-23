@@ -1,4 +1,6 @@
-﻿#nullable disable
+﻿// <copyright file="DatabaseSettings.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
 
 namespace RaceHubMotorsSqlite.API.Common.Configurations;
 
@@ -8,7 +10,7 @@ namespace RaceHubMotorsSqlite.API.Common.Configurations;
 public class DatabaseSettings
 {
     /// <summary>
-    /// Gets or sets the file location.
+    /// The relevant file location of the database.
     /// </summary>
-    public string FileLocation { get; set; }
+    public string FileLocation { get; set; } = string.Empty;
 }

@@ -1,3 +1,7 @@
+// <copyright file="IManufacturerRepository.cs" company="PK Codes 92">
+// Copyright (c) PK Codes 92. All rights reserved.
+// </copyright>
+
 using RaceHubMotorsSqlite.API.DAL.Models;
 
 namespace RaceHubMotorsSqlite.API.DAL.Repository.Interfaces;
