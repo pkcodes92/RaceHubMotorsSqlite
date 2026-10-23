@@ -45,6 +45,11 @@ public static class EngineExtensions
         };
     }
 
+    /// <summary>
+    /// Converts the relevant request to a database entity.
+    /// </summary>
+    /// <param name="request">The relevant request to add a new engine.</param>
+    /// <returns>A type of <see cref="Engine"/> which is a database entity.</returns>
     public static Engine ToEntity(this DTO.Request.AddEngineRequest request)
     {
         return new Engine

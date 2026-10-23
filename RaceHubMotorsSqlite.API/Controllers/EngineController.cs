@@ -23,6 +23,13 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
 
     private readonly IEngineRepository engineRepo = engineRepo;
 
+    /// <summary>
+    /// This endpoint will return all the engines in the database.
+    /// </summary>
+    /// <returns>
+    /// A unit of execution that contains type of <see cref="ActionResult{TValue}"/> which contains a type of
+    /// <see cref="GetEnginesResponse"/>.
+    /// </returns>
     [HttpGet("GetEngines")]
     public async Task<ActionResult<GetEnginesResponse>> GetEnginesAsync()
     {
@@ -43,6 +50,14 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         return this.NotFound("The engines could not be found!");
     }
 
+    /// <summary>
+    /// This endpoint will get a single engine from the database by searching the primary key.
+    /// </summary>
+    /// <param name="id">The primary key of the engine to search.</param>
+    /// <returns>
+    /// A unit of execution that contains a type of <see cref="ActionResult{TValue}"/> which contains a type of
+    /// <see cref="GetEngineResponse"/>.
+    /// </returns>
     [HttpGet("GetEngineById/{id}")]
     public async Task<ActionResult<GetEngineResponse>> GetEngineByIdAsync(int id)
     {
@@ -61,8 +76,16 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         return this.NotFound("The engine could not be found!");
     }
 
+    /// <summary>
+    /// This endpoint will get the relevant engine by the code.
+    /// </summary>
+    /// <param name="code">The code of the engine to search.</param>
+    /// <returns>
+    /// A unit of execution that contains a type of <see cref="ActionResult{TValue}"/> which contains a type of
+    /// <see cref="GetEngineResponse"/>.
+    /// </returns>
     [HttpGet("GetEngineByCode/{code}")]
-    public async Task<ActionResult<GetEngineResponse>> GetEngineByCodeAsync(string code)
+    public async Task<ActionResult<GetEngineResponse>> GetEngineByCodeAsync([FromRoute] string code)
     {
         this.logger.LogInformation("Getting the engine by the code");
 
@@ -79,6 +102,14 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         return this.NotFound("The engine could not be found!");
     }
 
+    /// <summary>
+    /// This endpoint will be inserting a new engine to the database.
+    /// </summary>
+    /// <param name="request">The new engine information to insert.</param>
+    /// <returns>
+    /// A unit of execution that contains a type of <see cref="ActionResult{TValue}"/> which contains a type of
+    /// <see cref="AddEngineResponse"/>.
+    /// </returns>
     [HttpPost("AddEngine")]
     public async Task<ActionResult<AddEngineResponse>> AddEngineAsync([FromBody] AddEngineRequest request)
     {
@@ -99,6 +130,15 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         return this.UnprocessableEntity("The engine could not be added!");
     }
 
+    /// <summary>
+    /// This endpoint will update an existing engine with the relevant information.
+    /// </summary>
+    /// <param name="id">The primary key of the engine to update.</param>
+    /// <param name="request">The updated information about the engine.</param>
+    /// <returns>
+    /// A unit of execution that contains type of <see cref="ActionResult{TValue}"/> which contains a type of
+    /// <see cref="UpdateEngineResponse"/>.
+    /// </returns>
     [HttpPost("UpdateEngine")]
     public async Task<ActionResult<UpdateEngineResponse>> UpdateEngineAsync(
         [FromRoute] int id,
@@ -125,6 +165,14 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
         return this.UnprocessableEntity("The engine could not be updated!");
     }
 
+    /// <summary>
+    /// This endpoint will remove an engine from the database.
+    /// </summary>
+    /// <param name="id">The primary key of the engine to delete.</param>
+    /// <returns>
+    /// A unit of execution that contains type of <see cref="ActionResult{TValue}"/> which contains a type of
+    /// <see cref="DeleteEngineResponse"/>.
+    /// </returns>
     [HttpPost("DeleteEngine/{id}")]
     public async Task<ActionResult<DeleteEngineResponse>> DeleteEngineAsync([FromRoute] int id)
     {

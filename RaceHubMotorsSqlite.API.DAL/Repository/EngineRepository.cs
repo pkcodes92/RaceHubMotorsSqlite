@@ -75,6 +75,11 @@ public class EngineRepository(MotorsContext motorsContext) : IEngineRepository
         return result > 0 ? engine! : null!;
     }
 
+    /// <summary>
+    /// This method implementation will delete the engine from the database.
+    /// </summary>
+    /// <param name="engine">The relevant engine to delete.</param>
+    /// <returns>A unit of execution that contains a boolean value that indicates the successful deletion.</returns>
     public async Task<bool> DeleteEngineAsync(Engine engine)
     {
         this.motorsContext.ChangeTracker.Clear();
