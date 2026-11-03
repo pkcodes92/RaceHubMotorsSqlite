@@ -12,7 +12,7 @@ public class Manufacturer
     /// <summary>
     /// Gets or sets the manufacturer ID - the primary key.
     /// </summary>
-    public int ManufacturerId { get; set; }
+    public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the name.

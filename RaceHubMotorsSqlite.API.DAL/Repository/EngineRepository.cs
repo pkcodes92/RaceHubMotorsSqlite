@@ -58,7 +58,7 @@ public class EngineRepository(MotorsContext motorsContext) : IEngineRepository
     /// <returns>A unit of execution that contains a type of <see cref="Engine"/>.</returns>
     public async Task<Engine> GetEngineAsync(int id)
     {
-        var result = await this.motorsContext.Engines.FirstOrDefaultAsync(g => g.EngineId == id);
+        var result = await this.motorsContext.Engines.FirstOrDefaultAsync(g => g.Id == id);
         return result!;
     }
 

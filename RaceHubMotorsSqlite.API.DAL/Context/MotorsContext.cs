@@ -43,6 +43,8 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
     /// </summary>
     public virtual DbSet<VehicleColor> VehicleColors { get; set; }
 
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+
     /// <summary>
     /// This method will bind the tables to the database C# objects.
     /// </summary>
@@ -56,17 +58,17 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
         modelBuilder.Entity<Manufacturer>(entity =>
         {
-            entity.HasKey(e => e.ManufacturerId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Engine>(entity =>
         {
-            entity.HasKey(e => e.EngineId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Drivetrain>(entity =>
         {
-            entity.HasKey(e => e.DrivetrainId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Vehicle>(entity =>
