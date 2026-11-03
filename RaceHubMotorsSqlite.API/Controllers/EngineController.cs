@@ -150,7 +150,7 @@ public class EngineController(ILogger<EngineController> logger, IEngineRepositor
 
         updatedEngine.Code = request.Code;
         updatedEngine.Description = request.Description;
-        updatedEngine.EngineId = id;
+        updatedEngine.Id = id;
 
         var dbResult = await this.engineRepo.UpdateEngineAsync(updatedEngine);
 

@@ -45,7 +45,7 @@ public class VehicleColorRepository(MotorsContext motorsContext) : IVehicleColor
     /// <returns>A unit of execution that contains a type of <see cref="VehicleColor"/>.</returns>
     public async Task<VehicleColor> GetVehicleColorAsync(int vehicleColorId)
     {
-        var result = await this.motorsContext.VehicleColors.FirstOrDefaultAsync(g => g.VehicleColorId == vehicleColorId);
+        var result = await this.motorsContext.VehicleColors.FirstOrDefaultAsync(g => g.Id == vehicleColorId);
         return result!;
     }
 

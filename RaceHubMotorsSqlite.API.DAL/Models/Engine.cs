@@ -12,7 +12,7 @@ public class Engine
     /// <summary>
     /// Gets or sets the engine ID - the primary key.
     /// </summary>
-    public int EngineId { get; set; }
+    public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the code.
@@ -39,7 +39,7 @@ public static class EngineExtensions
     {
         return new DTO.Models.Engine
         {
-            Id = engine.EngineId,
+            Id = engine.Id,
             Code = engine.Code,
             Description = engine.Description,
         };

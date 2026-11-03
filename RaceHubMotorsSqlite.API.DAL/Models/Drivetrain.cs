@@ -12,7 +12,7 @@ public class Drivetrain
     /// <summary>
     /// Gets or sets the primary key - Drivetrain ID.
     /// </summary>
-    public int DrivetrainId { get; set; }
+    public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the code.
@@ -39,7 +39,7 @@ public static class DrivetrainExtensions
     {
         return new DTO.Models.Drivetrain
         {
-            Id = drivetrain.DrivetrainId,
+            Id = drivetrain.Id,
             Code = drivetrain.Code,
             Description = drivetrain.Description,
         };

@@ -47,7 +47,7 @@ public class ManufacturerRepository(MotorsContext motorsContext) : IManufacturer
     /// <returns>A unit of execution that contains a type of <see cref="Manufacturer"/>.</returns>
     public async Task<Manufacturer> GetManufacturerAsync(int id)
     {
-        var result = await this.motorsContext.Manufacturers.FirstOrDefaultAsync(g => g.ManufacturerId == id);
+        var result = await this.motorsContext.Manufacturers.FirstOrDefaultAsync(g => g.Id == id);
         return result!;
     }
 

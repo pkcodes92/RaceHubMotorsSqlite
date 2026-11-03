@@ -44,6 +44,11 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
     public virtual DbSet<VehicleColor> VehicleColors { get; set; }
 
     /// <summary>
+    /// The refresh tokens in the database.
+    /// </summary>
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+
+    /// <summary>
     /// This method will bind the tables to the database C# objects.
     /// </summary>
     /// <param name="modelBuilder">The model building middleware.</param>
@@ -51,32 +56,37 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
     {
         modelBuilder.Entity<VehicleType>(entity =>
         {
-            entity.HasKey(e => e.VehicleTypeId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Manufacturer>(entity =>
         {
-            entity.HasKey(e => e.ManufacturerId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Engine>(entity =>
         {
-            entity.HasKey(e => e.EngineId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Drivetrain>(entity =>
         {
-            entity.HasKey(e => e.DrivetrainId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Vehicle>(entity =>
         {
-            entity.HasKey(e => e.VehicleId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<VehicleColor>(entity =>
         {
-            entity.HasKey(e => e.VehicleColorId);
+            entity.HasKey(e => e.Id);
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Id);
         });
     }
 }

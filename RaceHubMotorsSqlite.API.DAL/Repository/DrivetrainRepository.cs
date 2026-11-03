@@ -58,7 +58,7 @@ public class DrivetrainRepository(MotorsContext motorsContext) : IDrivetrainRepo
     /// <returns>A unit of execution that contains a type of <see cref="Drivetrain"/>.</returns>
     public async Task<Drivetrain> GetDrivetrainAsync(int id)
     {
-        var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.DrivetrainId == id);
+        var result = await this.motorsContext.Drivetrains.FirstOrDefaultAsync(g => g.Id == id);
         return result!;
     }
 
