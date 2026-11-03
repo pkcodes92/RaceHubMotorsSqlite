@@ -43,6 +43,9 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
     /// </summary>
     public virtual DbSet<VehicleColor> VehicleColors { get; set; }
 
+    /// <summary>
+    /// The refresh tokens in the database.
+    /// </summary>
     public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
     /// <summary>
@@ -53,7 +56,7 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
     {
         modelBuilder.Entity<VehicleType>(entity =>
         {
-            entity.HasKey(e => e.VehicleTypeId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<Manufacturer>(entity =>
@@ -73,12 +76,17 @@ public partial class MotorsContext(DbContextOptions<MotorsContext> options) : Db
 
         modelBuilder.Entity<Vehicle>(entity =>
         {
-            entity.HasKey(e => e.VehicleId);
+            entity.HasKey(e => e.Id);
         });
 
         modelBuilder.Entity<VehicleColor>(entity =>
         {
-            entity.HasKey(e => e.VehicleColorId);
+            entity.HasKey(e => e.Id);
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Id);
         });
     }
 }

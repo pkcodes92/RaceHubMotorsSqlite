@@ -12,7 +12,7 @@ public class VehicleColor
     /// <summary>
     /// Gets or sets the vehicle color ID - the primary key.
     /// </summary>
-    public int VehicleColorId { get; set; }
+    public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the code.

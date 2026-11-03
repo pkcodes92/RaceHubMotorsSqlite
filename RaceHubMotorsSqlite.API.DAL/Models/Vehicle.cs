@@ -12,7 +12,7 @@ public class Vehicle
     /// <summary>
     /// Gets or sets the vehicle ID.
     /// </summary>
-    public int VehicleId { get; set; }
+    public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the manufacturer ID.

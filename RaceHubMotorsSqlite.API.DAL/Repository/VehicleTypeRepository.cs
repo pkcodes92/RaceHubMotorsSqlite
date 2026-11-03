@@ -45,7 +45,7 @@ public class VehicleTypeRepository(MotorsContext motorsContext) : IVehicleTypeRe
     /// <returns>A unit of execution that contains a type of <see cref="VehicleType"/>.</returns>
     public async Task<VehicleType> GetVehicleTypeAsync(int id)
     {
-        var result = await this.motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.VehicleTypeId == id);
+        var result = await this.motorsContext.VehicleTypes.FirstOrDefaultAsync(g => g.Id == id);
         return result!;
     }
 

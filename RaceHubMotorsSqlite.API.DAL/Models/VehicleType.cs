@@ -12,7 +12,7 @@ public class VehicleType
     /// <summary>
     /// Gets or sets the vehicle type ID - the primary key.
     /// </summary>
-    public int VehicleTypeId { get; set; }
+    public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the code.
